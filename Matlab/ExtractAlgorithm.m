@@ -8,8 +8,13 @@ function Alg = ExtractAlgorithm(K)
 %           the multiplies defnied by Alg.M
 %       Alg.Full -> substitutes the Alg.C entries with the explicit
 %           multiplies in Alg.M
-
-    T = cyc2fac(K);
+    
+    if length(K) == 4
+        T = cyc2fac(K);
+    else
+        T = K;
+    end
+    
     dim = sqrt(size(K{1},1));
     A = sym('A', [dim, dim], 'real');
     B = sym('B', [dim, dim], 'real');

@@ -1,5 +1,7 @@
 function [S, U, V, W] = CyclicStrassen()
+% [S, U, V, W] = CyclicStrassen()
 % generates Strassen's cylic matrices for 2x2x2
+
 
     S = [1 0 0 1]';
     U = [
