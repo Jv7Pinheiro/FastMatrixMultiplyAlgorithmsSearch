@@ -1,4 +1,4 @@
-function Alg = ExtractAlgorithm(K)
+function [Alg, Ope] = ExtractAlgorithm(K)
 %EXTRACTALGORITHM checks if K is a valid algorithm and then returns the 
 %symbolic algorithms incoded in the cyclic factor matrices.
 %
@@ -40,23 +40,29 @@ function Alg = ExtractAlgorithm(K)
         Explicit_C(i) = 0;
         Implicit_C(i) = 0;
     end
-
+    
+    Additions = 0;
+    NumTerms = 0;
     for i = 1:rank
         for j = 1:3
             if j == 1
                 for k = 1:size(T{1}, 1)
                     if (T{1}(k, i) ==  1)
                         M(i, 1) = M(i, 1) + vecA(k);
+                        NumTerms = NumTerms + 1;
                     elseif (T{1}(k, i) ==  -1)
                         M(i, 1) = M(i, 1) - vecA(k);
+                        NumTerms = NumTerms + 1;
                     end
                 end
             elseif j == 2
                 for k = 1:size(T{2}, 1)
                     if (T{2}(k, i) ==  1)
                         M(i, 2) = M(i, 2) + vecB(k);
+                        NumTerms = NumTerms + 1;
                     elseif (T{2}(k, i) ==  -1)
                         M(i, 2) = M(i, 2) - vecB(k);
+                        NumTerms = NumTerms + 1;
                     end
                 end
             elseif j == 3
@@ -70,8 +76,13 @@ function Alg = ExtractAlgorithm(K)
                     end
                 end
             end
+            if (NumTerms - 1 >= 0)
+                Additions = Additions + NumTerms - 1;
+            end
+            NumTerms = 0;
         end
     end
+
     Areal = randi(10, [2, 2]);
     Breal = randi(10, [2, 2]);
 
@@ -81,7 +92,6 @@ function Alg = ExtractAlgorithm(K)
 
     Algo = subs(Explicit_C, A, Areal);
     Algo = subs(Algo, B, Breal);
-
     
     if (~isequal(Algo, True))
         fprintf("Algorithm is not successful\n");
@@ -90,11 +100,14 @@ function Alg = ExtractAlgorithm(K)
         for i = 1:length(Algo)
             fprintf("%4d | %9d | %10d\n", True(i), Algo(i), Diff(i));
         end
-    else
-        fprintf("Algorithm is successful\n\n");
+    end
+
+    for i = 1:dim^2
+        Additions = Additions + length(children(Explicit_C(i))) - 1;
     end
 
     Alg.M = M;
     Alg.C = Implicit_C;
     Alg.Full = Explicit_C;
+    Ope = [Additions, rank];
 end
