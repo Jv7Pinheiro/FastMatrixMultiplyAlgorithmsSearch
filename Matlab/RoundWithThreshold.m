@@ -1,4 +1,4 @@
-function roundMat = roundWithThreshold(inputMatrix, threshold)
+function roundMat = RoundWithThreshold(inputMatrix, threshold)
 %ROUNDWITHTHRESHOLD rounds entries in a matrix only if they are within the
 %threshold of the nearest integer
 %
