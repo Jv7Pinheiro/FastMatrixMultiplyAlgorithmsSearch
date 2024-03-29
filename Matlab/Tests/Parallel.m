@@ -157,11 +157,11 @@ parfor i = 1:NumItr
             else
                 [K, ~, out] = ci_cp_dgn(T, Rs, Rc, 'init', RSP_K, 'printitn', 0, 'maxiters', 150, 'lambda', 1e-6, 'tol', 1e-8);
             end
-            [rnd_cp, ~, abs_cp] = getErrors(K);
-            [SP_K] = CI_sparsify(K, thresh(j));
+            [rnd_cp, ~, abs_cp] = GetErrors(K);
+            [SP_K] = ci_sparsify(K, thresh(j));
 
             % Rounding with Threshold
-            RSP_K = cellfun(@(x) roundWithThreshold(x, thresh(j)), SP_K, 'UniformOutput', false); 
+            RSP_K = cellfun(@(x) RoundWithThreshold(x, thresh(j)), SP_K, 'UniformOutput', false); 
 
             Data(i, j, k, :) = [out.FcnVal rnd_cp abs_cp];
             Matrices{i, j, k} = K;

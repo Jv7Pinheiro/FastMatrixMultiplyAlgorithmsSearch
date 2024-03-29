@@ -39,6 +39,19 @@ MMT4 = matmul_tensor(4, 4, 4);
 % (Rs = 9, Rc = 13), (Rs = 6, Rc = 14), (Rs = 3, Rc = 15)
 
 MMT5 = matmul_tensor(5, 5, 5);
+% Rank 108 | 35 Decompositions
+% (Rs = 105, Rc = 1), (Rs = 102, Rc = 2), (Rs = 99, Rc = 3), 
+% (Rs = 96, Rc = 4), (Rs = 93, Rc = 5), (Rs = 90, Rc = 6), 
+% (Rs = 87, Rc = 7), (Rs = 84, Rc = 8), (Rs = 81, Rc = 9), 
+% (Rs = 78, Rc = 10), (Rs = 75, Rc = 11), (Rs = 72, Rc = 12), 
+% (Rs = 69, Rc = 13), (Rs = 66, Rc = 14), (Rs = 63, Rc = 15), 
+% (Rs = 60, Rc = 16), (Rs = 57, Rc = 17), (Rs = 54, Rc = 18), 
+% (Rs = 51, Rc = 19), (Rs = 48, Rc = 20), (Rs = 45, Rc = 21), 
+% (Rs = 42, Rc = 22), (Rs = 39, Rc = 23), (Rs = 36, Rc = 24), 
+% (Rs = 33, Rc = 25), (Rs = 30, Rc = 26), (Rs = 27, Rc = 27), 
+% (Rs = 24, Rc = 28), (Rs = 21, Rc = 29), (Rs = 18, Rc = 30), 
+% (Rs = 15, Rc = 31), (Rs = 12, Rc = 32), (Rs = 9, Rc = 33), 
+% (Rs = 6, Rc = 34), (Rs = 3, Rc = 35)
 % Rank 97 | 32 Decompositions
 % (Rs = 96, Rc = 1), (Rs = 93, Rc = 2), (Rs = 90, Rc = 3), 
 % (Rs = 87, Rc = 4), (Rs = 84, Rc = 5), (Rs = 81, Rc = 6), 
@@ -147,7 +160,7 @@ for Rc = 1:Decompositions
         [K_Prime, ~, output] = ci_cp_dgn(T, Rs, Rc, 'printitn', 0, 'maxiters', 150, 'lambda', 1e-6, 'tol', 1e-8);
         % Only save data if outputs are below thresholds
         if (output.FcnVal<FcnValThresh)
-            [rnd, rel, abs] = getErrors(K_Prime);
+            [rnd, rel, abs] = GetErrors(K_Prime);
             errors.rnd = rnd;
             errors.rel = rel;
             errors.abs = abs;
@@ -164,7 +177,7 @@ for Rc = 1:Decompositions
                 for k = 1:MaxOuterItr
                     if (k == 1)
                         % Schur Sparsify
-                        SP_K = CI_sparsify(K_Prime, thresh(j));
+                        SP_K = ci_sparsify(K_Prime, thresh(j));
 
                         % Eigenvalue Sparsify
                         % P = CI_sparsify(K, thresholds(j), 'eig');
@@ -179,7 +192,7 @@ for Rc = 1:Decompositions
                     end
 
                     % Rounding with Threshold
-                    RSP_K = cellfun(@(x) roundWithThreshold(x, thresh(j)), SP_K, 'UniformOutput', false); 
+                    RSP_K = cellfun(@(x) RoundWithThreshold(x, thresh(j)), SP_K, 'UniformOutput', false); 
                     
 
                     [rnd, rel, abs] = getErrors(RSP_K);
