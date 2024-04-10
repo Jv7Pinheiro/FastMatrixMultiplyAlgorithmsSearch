@@ -89,6 +89,17 @@ MMT5 = matmul_tensor(5, 5, 5);
 % (Rs = 22, Rc = 25), (Rs = 19, Rc = 26), (Rs = 16, Rc = 27), 
 % (Rs = 13, Rc = 28), (Rs = 10, Rc = 29), (Rs = 7, Rc = 30), 
 % (Rs = 4, Rc = 31), (Rs = 1, Rc = 32)
+% Rank 91 | 30 Decompositions
+% (Rs = 88, Rc = 1), (Rs = 85, Rc = 2), (Rs = 82, Rc = 3),
+% (Rs = 79, Rc = 4), (Rs = 76, Rc = 5), (Rs = 73, Rc = 6),
+% (Rs = 70, Rc = 7), (Rs = 67, Rc = 8), (Rs = 64, Rc = 9),
+% (Rs = 61, Rc = 10), (Rs = 58, Rc = 11), (Rs = 55, Rc = 12),
+% (Rs = 52, Rc = 13), (Rs = 49, Rc = 14), (Rs = 46, Rc = 15),
+% (Rs = 43, Rc = 16), (Rs = 40, Rc = 17), (Rs = 37, Rc = 18),
+% (Rs = 34, Rc = 19), (Rs = 31, Rc = 20), (Rs = 28, Rc = 21),
+% (Rs = 25, Rc = 22), (Rs = 22, Rc = 23), (Rs = 19, Rc = 24),
+% (Rs = 16, Rc = 25), (Rs = 13, Rc = 26), (Rs = 10, Rc = 27),
+% (Rs = 7, Rc = 28), (Rs = 4, Rc = 29), (Rs = 1, Rc = 30)
 
 % Set which tensor to test
 T = MMT5; % Decomposing Tensor
@@ -121,8 +132,8 @@ elseif isequal(T, MMT5)
     NumItr = 15000;
     Tensor = 'MMT5';
 
-    Rs = 3;
-    Rc = 35;
+    Rs = 4;
+    Rc = 29;
 
     clear MMT2 MMT3 MMT4
 end
@@ -138,7 +149,6 @@ MaxOuterItr = 25;
 Data = zeros(NumItr, t_sz, MaxOuterItr, 3);
 Matrices = cell(size(Data(:, :, :, 1)));
 Solutions = struct([]);
-Sol = 1;
 fprintf('\nSearching %s solutions with Rs=%d, Rc=%d\n', Tensor, Rs, Rc);
 fprintf('Settings:\n     %d Number of iterations\n     %d Outer Iterations\n     Thresholds:\n', NumItr, MaxOuterItr);
 disp(thresh)
@@ -172,7 +182,7 @@ end
 elapsed_time = toc;
 fprintf('Finished, Time Taken %.4f Seconds\n', elapsed_time);
 clear T Tensor
-save("Data_108_3_125");
+save("Data_91_4_29");
 %% Clear Data
 clear i j k Decompositions FcnValThresh MaxOuterItr NumItr Rank Rs Rc t_sz Tensor thresh T
 clear abs_cp abs_rspp innz outnz rnd_cp rnd_rsp RSP_K SP_K K

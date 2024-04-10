@@ -25,8 +25,8 @@ disp(minFV)
 for i = 1:size(AbsErrors, 3)
     [RndErrors_Results(i, :, 1), RndErrors_Results(i, :, 2)] = min(RndErrors(:, :, i));
 end
-%fprintf("\n\nRound Errors:\n")
-%disp(RndErrors_Results(:, :, 1))
+fprintf("\n\nRound Errors:\n")
+disp(RndErrors_Results(:, :, 1))
 
 [a, b] = min(RndErrors_Results(:, :, 1));
 [minRND, d] = min(a);
