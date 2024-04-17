@@ -102,7 +102,7 @@ MMT5 = matmul_tensor(5, 5, 5);
 % (Rs = 7, Rc = 28), (Rs = 4, Rc = 29), (Rs = 1, Rc = 30)
 
 % Set which tensor to test
-T = MMT5; % Decomposing Tensor
+T = NewDiff; % Decomposing Tensor
 
 if isequal(T, MMT2)
     NumItr = 50;
@@ -110,8 +110,7 @@ if isequal(T, MMT2)
     
     Rs = 1;
     Rc = 2;
-    
-    clear MMT3 MMT4;
+
 elseif isequal(T, MMT3)
     NumItr = 10000;
     Tensor = 'MMT3';
@@ -119,7 +118,6 @@ elseif isequal(T, MMT3)
     Rs = 8;
     Rc = 5;
 
-    clear MMT2 MMT4;
 elseif isequal(T, MMT4)
     NumItr = 10000;
     Tensor = 'MMT4';
@@ -127,7 +125,6 @@ elseif isequal(T, MMT4)
     Rs = 21;
     Rc = 9;
 
-    clear MMT2 MMT3;
 elseif isequal(T, MMT5)
     NumItr = 15000;
     Tensor = 'MMT5';
@@ -135,8 +132,15 @@ elseif isequal(T, MMT5)
     Rs = 4;
     Rc = 29;
 
-    clear MMT2 MMT3 MMT4
+else
+    NumItr = 15000;
+    Tensor = 'Diff Tensor';
+
+    Rs = 0;
+    Rc = 2;
+
 end
+clear MMT2 MMT3 MMT4 MMT5
 
 % Thresholds used in CI_sparsify, roundWithThresholds, and Setting Targets
 thresh = [0.01 0.05 0.1 0.2 0.3 0.4 0.5]';
@@ -148,7 +152,6 @@ MaxOuterItr = 25;
 %% Start Testing
 Data = zeros(NumItr, t_sz, MaxOuterItr, 3);
 Matrices = cell(size(Data(:, :, :, 1)));
-Solutions = struct([]);
 fprintf('\nSearching %s solutions with Rs=%d, Rc=%d\n', Tensor, Rs, Rc);
 fprintf('Settings:\n     %d Number of iterations\n     %d Outer Iterations\n     Thresholds:\n', NumItr, MaxOuterItr);
 disp(thresh)
@@ -163,9 +166,9 @@ parfor i = 1:NumItr
                 % RandStream.setGlobalStream(str{i});
                 % seed = RandStream.getGlobalStream.Seed
                 % Run initial test with randomized values from seed
-                [K, ~, out] = ci_cp_dgn(T, Rs, Rc, 'printitn', 0, 'maxiters', 150, 'lambda', 1e-6, 'tol', 1e-8);
+                [K, ~, out] = ci_cp_dgn(T, Rs, Rc, 'printitn', 0, 'maxiters', 150, 'lambda', 1e-6, 'tol', 1e-10, 'cg_tol', 1e-6);
             else
-                [K, ~, out] = ci_cp_dgn(T, Rs, Rc, 'init', RSP_K, 'printitn', 0, 'maxiters', 150, 'lambda', 1e-6, 'tol', 1e-8);
+                [K, ~, out] = ci_cp_dgn(T, Rs, Rc, 'init', RSP_K, 'printitn', 0, 'maxiters', 150, 'lambda', 1e-6, 'tol', 1e-10, 'cg_tol', 1e-6);
             end
             [rnd_cp, ~, abs_cp] = GetErrors(K);
             [SP_K] = ci_sparsify(K, thresh(j));
@@ -182,7 +185,7 @@ end
 elapsed_time = toc;
 fprintf('Finished, Time Taken %.4f Seconds\n', elapsed_time);
 clear T Tensor
-save("Data_91_4_29");
+save('Data_91_4_29', 'Data', 'MaxOuterItr', 'NumItr', 'elapsed_time', 'thresh');
 %% Clear Data
 clear i j k Decompositions FcnValThresh MaxOuterItr NumItr Rank Rs Rc t_sz Tensor thresh T
 clear abs_cp abs_rspp innz outnz rnd_cp rnd_rsp RSP_K SP_K K
