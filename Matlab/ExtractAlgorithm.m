@@ -19,7 +19,7 @@ function [Alg, Ope] = ExtractAlgorithm(K)
     A = sym('A', [dim, dim], 'real');
     B = sym('B', [dim, dim], 'real');
     C = sym('C', [dim, dim], 'real');
-
+    
     vecA = A(:);
     vecB = B(:);
     Explicit_C = C(:);
@@ -83,8 +83,8 @@ function [Alg, Ope] = ExtractAlgorithm(K)
         end
     end
 
-    Areal = randi(10, [2, 2]);
-    Breal = randi(10, [2, 2]);
+    Areal = randi(10, [dim, dim]);
+    Breal = randi(10, [dim, dim]);
 
     True = subs(Result, A, Areal);
     True = subs(True, B, Breal)';
