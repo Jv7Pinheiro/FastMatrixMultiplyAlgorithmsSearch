@@ -102,7 +102,7 @@ MMT5 = matmul_tensor(5, 5, 5);
 % (Rs = 7, Rc = 28), (Rs = 4, Rc = 29), (Rs = 1, Rc = 30)
 
 % Set which tensor to test
-T = NewDiff; % Decomposing Tensor
+T = DIff_Tensor; % Decomposing Tensor
 
 if isequal(T, MMT2)
     NumItr = 50;
@@ -137,7 +137,7 @@ else
     Tensor = 'Diff Tensor';
 
     Rs = 0;
-    Rc = 2;
+    Rc = 3;
 
 end
 clear MMT2 MMT3 MMT4 MMT5
@@ -185,7 +185,7 @@ end
 elapsed_time = toc;
 fprintf('Finished, Time Taken %.4f Seconds\n', elapsed_time);
 clear T Tensor
-save('Data_91_4_29', 'Data', 'MaxOuterItr', 'NumItr', 'elapsed_time', 'thresh');
+save('DiffTensorData6_Rs0_Rc3', 'Data', 'MaxOuterItr', 'NumItr', 'elapsed_time', 'thresh');
 %% Clear Data
 clear i j k Decompositions FcnValThresh MaxOuterItr NumItr Rank Rs Rc t_sz Tensor thresh T
 clear abs_cp abs_rspp innz outnz rnd_cp rnd_rsp RSP_K SP_K K
