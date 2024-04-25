@@ -30,14 +30,14 @@ MMT4 = matmul_tensor(4, 4, 4);
 % (Rs = 37, Rc = 4), (Rs = 34, Rc = 5), (Rs = 31, Rc = 6), 
 % (Rs = 28, Rc = 7), (Rs = 25, Rc = 8), (Rs = 22, Rc = 9),
 % (Rs = 19, Rc = 10), $(Rs = 16, Rc = 11)$, (Rs = 13, Rc = 12), 
-% (Rs = 10, Rc = 13), (Rs = 7, Rc = 14), (Rs = 4, Rc = 15), 
-% $(Rs = 1, Rc = 16)
+% (Rs = 10, Rc = 13), (Rs = 7, Rc = 14), (Rs = 4, Rc = 15),
+% (Rs = 1, Rc = 16)
 % Rank 48 | 15 Decompositions
 % (Rs = 45, Rc = 1), (Rs = 42, Rc = 2), (Rs = 39, Rc = 3),
 % (Rs = 36, Rc = 4), (Rs = 33, Rc = 5), (Rs = 30, Rc = 6),
 % (Rs = 27, Rc = 7), (Rs = 24, Rc = 8), (Rs = 21, Rc = 9),
 % (Rs = 18, Rc = 10), (Rs = 15, Rc = 11), (Rs = 12, Rc = 12),
-% (Rs = 9, Rc = 13), (Rs = 6, Rc = 14), (Rs = 3, Rc = 15),
+% (Rs = 9, Rc = 13), (Rs = 6, Rc = 14), (Rs = 3, Rc = 15)
 
 MMT5 = matmul_tensor(5, 5, 5);
 % Rank 108 | 35 Decompositions
@@ -102,7 +102,7 @@ MMT5 = matmul_tensor(5, 5, 5);
 % (Rs = 7, Rc = 28), (Rs = 4, Rc = 29), (Rs = 1, Rc = 30)
 
 % Set which tensor to test
-T = DIff_Tensor; % Decomposing Tensor
+T = MMT4; % Decomposing Tensor
 
 if isequal(T, MMT2)
     NumItr = 50;
@@ -119,11 +119,11 @@ elseif isequal(T, MMT3)
     Rc = 5;
 
 elseif isequal(T, MMT4)
-    NumItr = 10000;
+    NumItr = 20000;
     Tensor = 'MMT4';
     
-    Rs = 21;
-    Rc = 9;
+    Rs = 3;
+    Rc = 15;
 
 elseif isequal(T, MMT5)
     NumItr = 15000;
@@ -147,7 +147,7 @@ thresh = [0.01 0.05 0.1 0.2 0.3 0.4 0.5]';
 t_sz = size(thresh, 1);
 
 % This is how many times we will use a out_cell as in_cell
-MaxOuterItr = 25;
+MaxOuterItr = 30;
 
 %% Start Testing
 Data = zeros(NumItr, t_sz, MaxOuterItr, 3);
@@ -185,7 +185,7 @@ end
 elapsed_time = toc;
 fprintf('Finished, Time Taken %.4f Seconds\n', elapsed_time);
 clear T Tensor
-save('DiffTensorData6_Rs0_Rc3', 'Data', 'MaxOuterItr', 'NumItr', 'elapsed_time', 'thresh');
+save('Data2_48_3_15', 'Data', 'MaxOuterItr', 'NumItr', 'elapsed_time', 'thresh');
 %% Clear Data
 clear i j k Decompositions FcnValThresh MaxOuterItr NumItr Rank Rs Rc t_sz Tensor thresh T
 clear abs_cp abs_rspp innz outnz rnd_cp rnd_rsp RSP_K SP_K K

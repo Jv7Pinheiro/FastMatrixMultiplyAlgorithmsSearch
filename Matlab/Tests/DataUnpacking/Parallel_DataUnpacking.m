@@ -11,8 +11,8 @@ AbsErrors_Results = zeros(size(AbsErrors, 3), size(AbsErrors, 2), 2);
 for i = 1:size(FcnValues, 3)
     [FcnValues_Results(i, :, 1), FcnValues_Results(i, :, 2)] = min(FcnValues(:, :, i));
 end
-fprintf("\n\nFunction Values:\n")
-disp(FcnValues_Results(:, :, 1))
+% fprintf("\n\nFunction Values:\n")
+% disp(FcnValues_Results(:, :, 1))
 
 [a, b] = min(FcnValues_Results(:, :, 1));
 [minFV, d] = min(a);
@@ -25,8 +25,8 @@ disp(minFV)
 for i = 1:size(AbsErrors, 3)
     [RndErrors_Results(i, :, 1), RndErrors_Results(i, :, 2)] = min(RndErrors(:, :, i));
 end
-% fprintf("\n\nRound Errors:\n")
-% disp(RndErrors_Results(:, :, 1))
+fprintf("\n\nRound Errors:\n")
+disp(RndErrors_Results(:, :, 1))
 
 [a, b] = min(RndErrors_Results(:, :, 1));
 [minRND, d] = min(a);
