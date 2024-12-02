@@ -1,0 +1,1498 @@
+\documentclass{article}
+% \usepackage{multirow, multicol}
+\usepackage{latexsym,amssymb,amsmath,youngtab}
+\usepackage{multirow}
+\usepackage{youngtab,array}
+\usepackage{epsfig}
+\usepackage[margin=2cm]{geometry}
+\usepackage{ulem}
+
+\begin{document}
+    \textbf{Rs 16 - Soln 1}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 4 \\ 
+    7 & 2 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    rank(kron(eye(4), 6) - kron(6', eye(4))) = 10
+
+    rank([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), 2) - kron(4', eye(4))]) = 16
+
+    rank([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), 2) - kron(5', eye(4))]) = 15
+    
+    rank([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), 2) - kron(7', eye(4))]) = 14
+    
+    rank([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), 2) - kron(8', eye(4))]) = 16
+    
+    rank([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), 2) - kron(14', eye(4))]) = 16
+    
+    rank([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), 4) - kron(14', eye(4))]) = 15
+
+    $2 \Leftrightarrow 5 \Leftrightarrow 7$
+
+    $4 \Leftrightarrow 14$
+
+    $8$  by itself (multiple of the identity)
+
+    [U, S, V] = svd([kron(eye(4), 6) - kron(6', eye(4)); kron(eye(4), reshape(Rs16Rc11{1}{1}(:, 8), 4, 4)) - kron(reshape(Rs16Rc11{1}{1}(:, 8), 4, 4)', eye(4))]);
+    V(:, end)
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 2}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 1 \\ 
+    3 & 2 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 4 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    $3 \Leftrightarrow 4 \Leftrightarrow 5 \Leftrightarrow 14$
+
+    7 and 12 by themselves
+
+    12 is not the identity times a constant!
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 3}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 4 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    $2 \Leftrightarrow 3 \Leftrightarrow 5 \Leftrightarrow 12 \Leftrightarrow 13 \Leftrightarrow 15$
+    
+    All related!?
+
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 4}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 4 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    2 11 12
+
+    3 9
+
+    5 is by itself, not a multiple of the identity!
+
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 5}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 1 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 2 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 1 \\ 
+    16 & 4 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    $3 \Leftrightarrow 5 \Leftrightarrow 7 \Leftrightarrow 14$
+    
+    8 9
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 6}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 4 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 2 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    1 7 10 16
+
+    5 by itself (multiple of the identity)
+
+    11 by itself (multiple of the identity)
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 7}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 4 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    1 10 11 13
+
+    5 is by itself (not a multiple of the identity)
+
+    4 is by itself (multiple of the identity)
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 8}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 2 \\ 
+    4 & 4 \\ 
+    5 & 1 \\ 
+    6 & 2 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    1 3 7 12
+
+    6 10
+
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 9}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 1 \\ 
+    4 & 1 \\ 
+    5 & 4 \\ 
+    6 & 2 \\ 
+    7 & 1 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 1 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    2 8 10 12
+
+    6 is by itself (multiple of the identity)
+
+    15 is by itself (multiple of the identity)
+
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 10}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 4 \\ 
+    15 & 1 \\ 
+    16 & 2 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    1 13 16
+    5 10 11
+    All related
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 11}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 4 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    1 5 9 11 13 15
+    All related (all odds)
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 12}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 4 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 2 \\ 
+    15 & 1 \\ 
+    16 & 2 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    3 13 14
+
+    9 16
+
+    12 is by itself (multiple of the identity)
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 13}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 4 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    5 is by itself (not a multiple of the)
+
+    9 10 11 12 14
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 14}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 2 \\ 
+    7 & 2 \\ 
+    8 & 4 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 15}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 2 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 4 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 16}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 2 \\ 
+    16 & 4 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 17}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 4 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 18}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 1 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 4 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 19}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 4 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 20}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 4 \\ 
+    14 & 2 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 21}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 4 \\ 
+    3 & 2 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 2 \\ 
+    7 & 1 \\ 
+    8 & 2 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 22}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 4 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 2 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 23}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 4 \\ 
+    6 & 2 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 24}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 4 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 2 \\ 
+    7 & 1 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 1 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 25}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 4 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 2 \\ 
+    16 & 2 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 26}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 4 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 2 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 27}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 4 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 28}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 2 \\ 
+    3 & 2 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 4 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 29}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 2 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 2 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 1 \\ 
+    15 & 4 \\ 
+    16 & 2 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 30}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 4 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 2 \\ 
+    7 & 2 \\ 
+    8 & 2 \\ 
+    9 & 1 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 1 \\ 
+    14 & 2 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 31}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 2 \\ 
+    2 & 1 \\ 
+    3 & 1 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 2 \\ 
+    8 & 1 \\ 
+    9 & 1 \\ 
+    10 & 2 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 4 \\ 
+    14 & 1 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+
+    \textbf{Rs 16 - Soln 32}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+    & $t^3(t - 1)$ & 9 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+    & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 1 \\ 
+    2 & 4 \\ 
+    3 & 1 \\ 
+    4 & 1 \\ 
+    5 & 1 \\ 
+    6 & 2 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 2 \\ 
+    11 & 2 \\ 
+    12 & 2 \\ 
+    13 & 1 \\ 
+    14 & 1 \\ 
+    15 & 2 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+    \newpage
+
+    \textbf{Rs 16 - Soln 1}
+    \begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-1}} \\ \hline
+    \multirow{3}{*}{symmetric}
+     & $t^3(t - 1)$ & 9 \\
+     & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+     & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+     & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-2}} \\ \hline
+    \multirow{3}{*}{symmetric}
+     & $t^3(t - 1)$ & 9 \\
+     & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+     & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+     & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline \multicolumn{3}{|c|}{\texttt{name-3}} \\ \hline
+    \multirow{3}{*}{symmetric}
+     & $t^3(t - 1)$ & 9 \\
+     & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+     & $t^2(t + t^2 + 1)$ & 6 \\
+    \hline
+    \multirow{1}{*}{triples}
+     & $\left\{t^4,t^4,t^4\right\}$ & 11 \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \begin{table}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Col Number} & \textbf{Rank}\\
+    1 & 4 \\ 
+    2 & 2 \\ 
+    3 & 2 \\ 
+    4 & 2 \\ 
+    5 & 2 \\ 
+    6 & 1 \\ 
+    7 & 1 \\ 
+    8 & 1 \\ 
+    9 & 2 \\ 
+    10 & 1 \\ 
+    11 & 1 \\ 
+    12 & 1 \\ 
+    13 & 2 \\ 
+    14 & 1 \\ 
+    15 & 1 \\ 
+    16 & 1 \\ 
+    \hline
+    \end{tabular}
+    \end{table}
+
+    2, 3, 4, 5, 9, 13
+    \newpage
+
+\end{document}

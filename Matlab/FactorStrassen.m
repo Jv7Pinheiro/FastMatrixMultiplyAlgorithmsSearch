@@ -1,4 +1,5 @@
-function [A,B,C] = FactorStrassen() 
+function [A,B,C] = FactorStrassen()
+% [A, B, C] = FactorStrassen()
 % generates Strassen's factor matrices for 2x2x2
 
     A = [

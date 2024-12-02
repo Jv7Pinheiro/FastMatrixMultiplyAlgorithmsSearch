@@ -29,7 +29,7 @@ MMT4 = matmul_tensor(4, 4, 4);
 % (Rs = 46, Rc = 1), (Rs = 43, Rc = 2), (Rs = 40, Rc = 3),
 % (Rs = 37, Rc = 4), (Rs = 34, Rc = 5), (Rs = 31, Rc = 6), 
 % (Rs = 28, Rc = 7), (Rs = 25, Rc = 8), (Rs = 22, Rc = 9),
-% (Rs = 19, Rc = 10), $(Rs = 16, Rc = 11)$, (Rs = 13, Rc = 12), 
+% (Rs = 19, Rc = 10), (Rs = 16, Rc = 11), (Rs = 13, Rc = 12), 
 % (Rs = 10, Rc = 13), (Rs = 7, Rc = 14), (Rs = 4, Rc = 15),
 % (Rs = 1, Rc = 16)
 % Rank 48 | 15 Decompositions
@@ -119,11 +119,11 @@ elseif isequal(T, MMT3)
     Rc = 5;
 
 elseif isequal(T, MMT4)
-    NumItr = 20000;
+    NumItr = 15000;
     Tensor = 'MMT4';
     
-    Rs = 3;
-    Rc = 15;
+    Rs = 16;
+    Rc = 11;
 
 elseif isequal(T, MMT5)
     NumItr = 15000;
@@ -147,7 +147,7 @@ thresh = [0.01 0.05 0.1 0.2 0.3 0.4 0.5]';
 t_sz = size(thresh, 1);
 
 % This is how many times we will use a out_cell as in_cell
-MaxOuterItr = 30;
+MaxOuterItr = 20;
 
 %% Start Testing
 Data = zeros(NumItr, t_sz, MaxOuterItr, 3);

@@ -54,23 +54,38 @@ clear i
 clear a b d idx minFV minRND minABS
 
 %%
-
+Successful_Decompositions = {};
+Locations = [];
 for i = 1:size(RndErrors, 3)
-    I = find(RndErrors(:, :, i) == 0);
+    [I, J] = find(RndErrors(:, :, i) == 0);
     if size(I, 1) ~= 0
         fprintf("Round\n")
         i
-        disp(I)
+        disp([I, J])
+
+        for j = 1:length(I)
+            if ~(ismember(I(j), Locations))
+                Locations(end+1, :) = I(j);
+                Successful_Decompositions{end+1} = cellfun(@(x) round(x), Matrices{I(j), J(j), i}, 'UniformOutput', false);
+            end
+        end
     end
 end
 
 for i = 1:size(AbsErrors, 3)
-    I = find(AbsErrors(:, :, i) == 0);
+    [I, J] = find(AbsErrors(:, :, i) == 0);
     if size(I, 1) ~= 0
         fprintf("Absolute\n")
         i
-        disp(I)
+        disp([I, J])
+
+        for j = 1:length(I)
+            if ~(ismember(I(j), Locations))
+                Locations(end+1, :) = I(j);
+                Successful_Decompositions{end+1} = cellfun(@(x) round(x), Matrices{I(j), J(j), i}, 'UniformOutput', false);
+            end
+        end
     end
 end
 
-clear i I
+clear i I J Locations

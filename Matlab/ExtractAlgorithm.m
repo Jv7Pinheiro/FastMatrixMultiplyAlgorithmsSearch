@@ -19,7 +19,7 @@ function [Alg, Ope] = ExtractAlgorithm(K)
     A = sym('A', [dim, dim], 'real');
     B = sym('B', [dim, dim], 'real');
     C = sym('C', [dim, dim], 'real');
-    
+
     vecA = A(:);
     vecB = B(:);
     Explicit_C = C(:);
