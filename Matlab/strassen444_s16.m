@@ -2,7 +2,7 @@ function [U,V,W] = strassen444_s16()
 % return rank-49 soln based on Strassen's 222 alg
 % U and V are col-major, W is row-major
 
-    [u,v,w] = soln222s4;
+    [u,v,w] = strassen222_s4;
 
     % create permutation matrix that swaps Morton for col-ordering
     P = eye(16);

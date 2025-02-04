@@ -1,4 +1,4 @@
-function [U,V,W] = soln222s4() 
+function [U,V,W] = strassen222_s4() 
 % return U,V,W representation of 2x2 rank 7 decomposition with 4 sym
 % from Chiantini, Landsberg et al 2016 paper
 % U and V are col-major, W is row-major

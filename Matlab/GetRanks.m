@@ -1,7 +1,7 @@
 function GetRanks(Soln, print_soln, Thi)
-    nsol = length(Soln)
-    nsym = size(Soln{1}{1}, 2)
-    sz = size(Soln{1}{1}, 1)
+    nsol = length(Soln);
+    nsym = size(Soln{1}{1}, 2);
+    sz = size(Soln{1}{1}, 1);
 
     for i = 1:nsol
         rank_cnt = zeros(2, 1);
@@ -24,11 +24,11 @@ function GetRanks(Soln, print_soln, Thi)
         end
 
         if (print_soln)
-            rank_cnt(:, 2:end) % Toggle
+            rank_cnt(:, 2:end); % Toggle
             fprintf('\\textbf{Rs %d - Soln %d}\n', nsym, i);
-            % K = cyc2fac(Soln{i});
-            % print_char_poly(K{1}, nsym);
-            print_char_poly(Thi, nsym);
+            K = cyc2fac(Soln{i});
+            print_char_poly(K{1}, nsym);
+            % print_char_poly(Thi, nsym);
         end
 
         fprintf("\\begin{table}\n")

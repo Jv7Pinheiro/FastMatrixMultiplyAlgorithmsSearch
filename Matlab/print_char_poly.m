@@ -61,7 +61,7 @@ function P = print_char_poly(U,s,varargin)
             for k = 1:3,
                 M = reshape(U{a}(:,s+i+(k-1)*triples),dim,dim);
                 % get characteristic polynomial
-                Q(i,k) = det(t*eye(dim)-M);
+                Q(i,k) = simplify(det(t*eye(dim)-M));
             end
         end 
         
