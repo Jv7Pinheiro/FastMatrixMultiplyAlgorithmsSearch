@@ -12,7 +12,7 @@ function P = print_char_poly(U,s,varargin)
     end
     
     % make sure U is a cell array
-    if ~iscell(U),
+    if ~iscell(U)
         tmp{1} = U;
         U=tmp;
     end
@@ -33,14 +33,15 @@ function P = print_char_poly(U,s,varargin)
     disp('\hline');
     disp('\textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\');
     
+    
     % loop over algorithms
-    for a = 1:length(U),
+    for a = 1:1 % length(U)
         
         % algorithm info
-        disp(['\hline \multicolumn{3}{|c|}{\texttt{',name,'-',num2str(a),'}} \\ \hline']);
+        fprintf('\\hline \\multicolumn{3}{|c|}{\\texttt{%s-%s}} \\\\ \\hline\n', name,num2str(a));
        
         % loop over symmetric components (assumed to be first s columns)
-        for i = 1:s,
+        for i = 1:s
             M = reshape(U{a}(:,i),dim,dim);
             % get characteristic polynomial
             P(i) = simplify(det(t*eye(dim)-M));
@@ -48,17 +49,17 @@ function P = print_char_poly(U,s,varargin)
 
         [C,~,IC] = unique(P,'rows');
         nu = size(C,1);
-        disp(['\multirow{',num2str(nu),'}{*}{symmetric}']);
-        for j = 1:nu,
+        fprintf('\\multirow{%s}{*}{symmetric}\n', num2str(nu));
+        for j = 1:nu
             pp = strrep(char(C(j)),'*','');
-            disp([' & $',pp,'$ & ',num2str(nnz(IC==j)),' \\']);
+            fprintf('& $%s$ & %s \\\\\n',pp,num2str(nnz(IC==j)));
         end
         
         disp('\hline');
                 
         % loop over non-symmetric components
-        for i = 1:triples,
-            for k = 1:3,
+        for i = 1:triples
+            for k = 1:3
                 M = reshape(U{a}(:,s+i+(k-1)*triples),dim,dim);
                 % get characteristic polynomial
                 Q(i,k) = simplify(det(t*eye(dim)-M));
@@ -71,7 +72,7 @@ function P = print_char_poly(U,s,varargin)
         [C,~,IC] = unique(Q,'rows');
         nu = size(C,1);
         disp(['\multirow{',num2str(nu),'}{*}{triples}']);
-        for j = 1:nu,
+        for j = 1:nu
             disp([' & $\left\{',strrep(char(C(j,1)),'*',''),',',strrep(char(C(j,2)),'*',''),',',strrep(char(C(j,3)),'*',''),'\right\}$ & ',num2str(nnz(IC==j)),' \\']);
         end
     

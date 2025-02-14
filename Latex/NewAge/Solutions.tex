@@ -1,0 +1,99 @@
+\documentclass{article}
+% \usepackage{multirow, multicol}
+\usepackage{latexsym,amssymb,amsmath,youngtab}
+\usepackage{multirow}
+\usepackage{youngtab,array}
+\usepackage{epsfig}
+\usepackage[margin=1cm]{geometry}
+\usepackage{ulem}
+
+\newcommand{\Mthree}{%
+    M_{(4)}
+}
+
+\begin{document}
+\begin{table}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\
+    \hline \multicolumn{3}{|c|}{\texttt{Rs12-Rc12-Solution-Transformed-1}} \\ \hline
+    \multirow{4}{*}{symmetric}
+    & $t^3(t - 1)$ & 6 \\
+    & $(t - 1)^2(t + t^2 + 1)$ & 1 \\
+    & $t^2(t - 1)^2$ & 1 \\
+    & $t^2(t + t^2 + 1)$ & 5 \\
+    \hline
+    \multirow{2}{*}{triples}
+     & $\left\{t^3(t - 1),t^3(t - 1),t^3(t + 1)\right\}$ & 2 \\
+     & $\left\{t^4,t^4,t^4\right\}$ & 10 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+{\footnotesize
+\begin{align}
+    \Mthree
+    &= \label{Rs12-Rc12-Solution-Transformed-c1} \begin{pmatrix} -1 & 0 & 1 & 0 \\ 1 & 0 & 0 & 0 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} -1 & 1 & 0 & -1 \\ -1 & 0 & 0 & 0 \\ -1 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix}^{\otimes 3} \\
+    &+ \label{Rs12-Rc12-Solution-Transformed-c4} \begin{pmatrix} -1 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \\ -1 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 1 & 0 & -1 & -1 \\ -1 & 0 & 0 & 0 \\ 1 & 1 & 0 & -1 \\ 0 & 0 & -1 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & -1 & 1 & 0 \end{pmatrix}^{\otimes 3} \\
+    &+ \label{Rs12-Rc12-Solution-Transformed-c7} \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix}^{\otimes 3} \\
+    &+ \label{Rs12-Rc12-Solution-Transformed-c10} \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & -1 & 0 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 1 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}^{\otimes 3} 
+        + \begin{pmatrix} 1 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 1 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}^{\otimes 3} \\
+    &+ \label{Rs12-Rc12-Solution-Transformed-c13} \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}^{\otimes 3} \\
+    &+ \label{Rs12-Rc12-Solution-Transformed-c14} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ -1 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ -1 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c15} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} -1 & 0 & 1 & 1 \\ 1 & 1 & 0 & -1 \\ -1 & -1 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & -1 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c16} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 1 & 0 & -1 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} \otimes 
+        \begin{pmatrix} -1 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ -1 & 0 & 1 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c17} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 1 & -1 & 0 & 1 \\ 1 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & -1 \\ -1 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c18} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & -1 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & -1 & 0 & 1 \\ 1 & -1 & 0 & 1 \\ 1 & -1 & 0 & 1 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c19} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} -1 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \\ -1 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ -1 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c20} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 1 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & -1 & -1 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c21} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 1 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c22} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} -1 & 0 & 1 & 0 \\ 1 & 0 & -1 & 0 \\ -1 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c23} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & -1 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & -1 & 1 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c24} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 1 & -1 & 0 & 1 \\ 1 & -1 & 0 & 1 \\ 1 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\ 
+    &+ \label{Rs12-Rc12-Solution-Transformed-c25} \mathbb{Z}_3^{std} \cdot 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix} \otimes 
+        \begin{pmatrix} 0 & -1 & -1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix} 
+\end{align}
+}
+\end{document}
