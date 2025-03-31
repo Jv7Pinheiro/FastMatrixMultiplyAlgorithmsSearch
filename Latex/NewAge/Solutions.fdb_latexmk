@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1739551092 "/Users/joaodeoliveria/Documents/GraduateSchool ResearchProjects/FastMatrixMultiplyAlgorithms/Latex/NewAge/Solutions.tex" "Solutions.pdf" "Solutions" 1739551093 0
-  "/Users/joaodeoliveria/Documents/GraduateSchool ResearchProjects/FastMatrixMultiplyAlgorithms/Latex/NewAge/Solutions.tex" 1739551092 7608 4a7c12fd07d1a2867cbec62df9d6783a ""
+["pdflatex"] 1742322121 "/Users/joaodeoliveria/Documents/GraduateSchool ResearchProjects/FastMatrixMultiplyAlgorithms/Latex/NewAge/Solutions.tex" "Solutions.pdf" "Solutions" 1742322122 0
+  "/Users/joaodeoliveria/Documents/GraduateSchool ResearchProjects/FastMatrixMultiplyAlgorithms/Latex/NewAge/Solutions.tex" 1742322121 7850 ea9cdf874cd6b70bb9486d4bcde63ecc ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -73,8 +73,8 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1708984441 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1708984383 7883465 7c2f7c11b0fd42dbabfc0badc5797b59 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "Solutions.aux" 1739551093 955 c57495a3a5591dbbefdaf5143a642d7a "pdflatex"
-  "Solutions.tex" 1739551092 7608 4a7c12fd07d1a2867cbec62df9d6783a ""
+  "Solutions.aux" 1742322122 955 64f104eeda547272dafeb207cfebbf90 "pdflatex"
+  "Solutions.tex" 1742322121 7850 ea9cdf874cd6b70bb9486d4bcde63ecc ""
   (generated)
   "Solutions.aux"
   "Solutions.log"

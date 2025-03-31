@@ -6,7 +6,7 @@ function make_matrices_latex(K, r, s, name)
     % K = build_alg();
     % 
     % % deduce matmul dimension
-    dim = sqrt(size(K{2},1));
+    dim = sqrt(size(K{1},1));
     % 
     % % compute number of symmetric components and triplets
     % r = length(K.lambda);
