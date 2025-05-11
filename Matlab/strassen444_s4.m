@@ -3,7 +3,7 @@ function [U,V,W] = strassen444_s4()
 % 222 alg with 1 sym comp and 222 alg with 4 sym comps
 % U and V are col-major, W is row-major
 
-    [u2,v2,w2] = soln222s4;
+    [u2,v2,w2] = strassen222_s4;
     [u1,v1,w1] = FactorStrassen;
 
     % create permutation matrix that swaps Morton for col-ordering

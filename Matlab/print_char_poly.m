@@ -28,7 +28,7 @@ function P = print_char_poly(U,s,varargin)
     syms t;
     
     % table header
-    disp('\begin{table}');
+    % disp('\begin{table}');
     disp('\begin{tabular}{|c|c|c|}');
     disp('\hline');
     disp('\textbf{Type} & \textbf{Char.~Poly.} & \textbf{Count} \\');
@@ -38,7 +38,7 @@ function P = print_char_poly(U,s,varargin)
     for a = 1:1 % length(U)
         
         % algorithm info
-        fprintf('\\hline \\multicolumn{3}{|c|}{\\texttt{%s-%s}} \\\\ \\hline\n', name,num2str(a));
+        fprintf('\\hline \\multicolumn{3}{|c|}{\\texttt{%s}} \\\\ \\hline\n', name);
        
         % loop over symmetric components (assumed to be first s columns)
         for i = 1:s
@@ -81,6 +81,6 @@ function P = print_char_poly(U,s,varargin)
     % table footer
     disp('\hline');
     disp('\end{tabular}');
-    disp('\end{table}');
+    % disp('\end{table}');
     
 end

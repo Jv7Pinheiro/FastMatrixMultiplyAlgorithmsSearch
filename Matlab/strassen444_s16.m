@@ -2,7 +2,7 @@ function [U,V,W] = strassen444_s16()
 % return rank-49 soln based on Strassen's 222 alg
 % U and V are col-major, W is row-major
 
-    [u,v,w] = strassen222_s4;
+    [u,v,w] = strassen222_s4();
 
     % create permutation matrix that swaps Morton for col-ordering
     P = eye(16);
@@ -13,8 +13,11 @@ function [U,V,W] = strassen444_s16()
 
     % create permutation matrix that reorders symmetric components first
     Pc = eye(49);
-    order=[1:4,8:11,15:18,22:25,5:7,12:14,19:21,26:49];
-    Pc=Pc(:,order)
+    order=[1:4,8:11,15:18,22:25, ...       % s
+               5,12,19,26,29:32,33,34,35, ...  % a
+               6,13,20,27,36:39,41,42,40, ...  % b
+               7,14,21,28,43:46,49,47,48];     % c
+    Pc=Pc(:,order);
     
     U = P*kron(u,u)*Pc;
     V = P*kron(v,v)*Pc;

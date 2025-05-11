@@ -6,37 +6,37 @@ function [S, U, V, W] = CyclicStrassen()
     S = [1 0 0 1]';
 
     % This is the one that came from FactorStrassen()
-    % U = [
-    %      0     0
-    %      1     0
-    %      0     0
-    %      1     1];
-    % V = [     
-    %      0     1
-    %      0     0
-    %      1     1
-    %     -1     0];
-    % W = [     
-    %      1    -1
-    %      0     1
-    %      0     0
-    %      0     0];
-
-    % This came from the Original Strassen's Algorithm
     U = [
          0     0
-         0     0
          1     0
+         0     0
          1     1];
     V = [     
          0     1
-         1     1
          0     0
-         -1    0];
+         1     1
+        -1     0];
     W = [     
          1    -1
-         0     0
          0     1
+         0     0
          0     0];
+
+    % This came from the Original Strassen's Algorithm
+    % U = [
+    %      0     0
+    %      0     0
+    %      1     0
+    %      1     1];
+    % V = [     
+    %      0     1
+    %      1     1
+    %      0     0
+    %      -1    0];
+    % W = [     
+    %      1    -1
+    %      0     0
+    %      0     1
+    %      0     0];
 
 end
